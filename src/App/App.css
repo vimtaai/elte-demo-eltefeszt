@@ -1,0 +1,39 @@
+.App {
+  max-width: 800px;
+  height: 100vh;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+}
+
+.App-header {
+  padding: 5px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #030000;
+  color: #FFFAFA;
+}
+
+.App-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.App-main {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+}
+
+.App-main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2vh 5vw;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
