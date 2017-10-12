@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Statistic } from 'semantic-ui-react';
 import firebaseService from '../../firebaseService';
 import './Welcome.css';
 
@@ -22,6 +23,14 @@ class Welcome extends Component {
     return (
       <div className="Welcome">
         <h1>Köszöntjük az ELTEfeszt résztvevőit!</h1>
+        <Statistic.Group widths='one'>
+          <Statistic color="green" size="huge">
+            <Statistic.Label>Több, mint</Statistic.Label>
+            <Statistic.Value>{ Math.round(this.props.programCount / 10) * 10 }</Statistic.Value>
+            <Statistic.Label>Program az ELTEfeszten</Statistic.Label>
+          </Statistic>
+        </Statistic.Group>
+        <br />
         <p><strong>{ this.state.intro }</strong></p>
         { this.state.texts.map((text, key) => <p key={'p' + key}>{text}</p>) }
       </div>

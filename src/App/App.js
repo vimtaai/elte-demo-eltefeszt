@@ -16,13 +16,20 @@ class App extends Component {
 
   componentDidMount = () => {
     firebaseService.database().ref('programs').orderByChild('from').on('value', function (sn) {
-      const data = [];
+      let data = [];
       sn.forEach((item) => {
         const program = item.val();
         program.key = item.key;
         data.push(program);
       });
-      data.sort((a, b) => a.from < b.from ? 1 : (a.from > b.from ? -1 : 0));
+      data.sort((a, b) => {
+        const date = new Date();
+        const today = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+        const aTime = new Date(today + ' ' + a.from);
+        const bTime = new Date(today + ' ' + b.from);
+        return (aTime < bTime ? -1 : (aTime > bTime ? 1 : 0));
+      });
+      window.data = data;
       this.setState({ 
         programs: data || []
       });
@@ -58,8 +65,8 @@ class App extends Component {
           <SideMenu visible={this.state.sidebarVisible} hideSidebar={this.hideSidebar} />
           <Sidebar.Pushable className="App-main">
             <Sidebar.Pusher className="App-main-content" onClick={this.state.sidebarVisible ? this.hideSidebar : null}>
-              <Route exact path="/" component={() => <Welcome />} />
-              <Route exact path="/index.html" component={() => <Welcome />} />
+              <Route exact path="/" component={() => <Welcome programCount={this.state.programs.length} />} />
+              <Route exact path="/index.html" component={() => <Welcome programCount={this.state.programs.length} />} />
               <Route exact path="/programs" component={() => <Programs programs={this.state.programs} />} />
               <Route exact path="/favorites" component={() => <Favorites programs={this.state.programs} />} />
               <Route exact path="/map" component={() => <Map />} />
