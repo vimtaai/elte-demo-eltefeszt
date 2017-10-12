@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Statistic } from 'semantic-ui-react';
+import { Statistic, Message, Icon } from 'semantic-ui-react';
 import firebaseService from '../../firebaseService';
 import './Welcome.css';
 
@@ -30,6 +30,12 @@ class Welcome extends Component {
             <Statistic.Label>Program az ELTEfeszten</Statistic.Label>
           </Statistic>
         </Statistic.Group>
+        <Message info icon size="large">
+          <Icon name="info" />
+          <Message.Content>
+            <strong>Tűzd ki ezt a weblapot a kezdőképernyőre és használd úgy, mint egy appot!</strong>
+          </Message.Content>
+        </Message> 
         <br />
         <p><strong>{ this.state.intro }</strong></p>
         { this.state.texts.map((text, key) => <p key={'p' + key}>{text}</p>) }
