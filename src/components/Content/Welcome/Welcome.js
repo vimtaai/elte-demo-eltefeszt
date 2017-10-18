@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Statistic, Message, Icon } from 'semantic-ui-react';
-import firebaseService from '../../firebaseService';
+import firebaseService from '../../../services/firebaseService';
+
 import './Welcome.css';
 
 class Welcome extends Component {

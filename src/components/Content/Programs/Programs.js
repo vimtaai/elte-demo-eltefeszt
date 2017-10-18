@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Card, Input, Label, Icon } from 'semantic-ui-react';
+import localStorageService from '../../../services/localStorageService';
+
 import './Programs.css';
-import localStorageService from '../../localStorageService';
 
 class Program extends Component {
   state = { visiblePrograms: [], favorites: [] };

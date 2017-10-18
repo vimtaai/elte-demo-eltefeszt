@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Sidebar, Menu, Icon } from 'semantic-ui-react'
+import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+
 import './SideMenu.css';
 
 class SideMenu extends Component {

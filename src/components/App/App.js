@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Sidebar, Modal, Button, Header, Icon } from 'semantic-ui-react';
-import AppLogo from './AppLogo.png';
-import './App.css';
 import Drawer from '../Drawer/Drawer';
 import SideMenu from '../SideMenu/SideMenu';
 import Welcome from '../Content/Welcome/Welcome';
 import Programs from '../Content/Programs/Programs';
 import Favorites from '../Content/Favorites/Favorites';
 import Map from '../Content/Map/Map';
-import firebaseService from '../firebaseService';
+import AppLogo from './AppLogo.png';
+import firebaseService from '../../services/firebaseService';
+
+import './App.css';
 
 class App extends Component {
   state = { sidebarVisible: false, programs: [], notifications: [], activeModal: undefined };

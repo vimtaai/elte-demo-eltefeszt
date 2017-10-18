@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, Label, Icon, Message } from 'semantic-ui-react';
+import localStorageService from '../../../services/localStorageService';
+
 import '../Programs/Programs.css';
-import localStorageService from '../../localStorageService';
 
 class Favorites extends Component {
   state = { favorites: [] };
